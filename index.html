@@ -415,10 +415,6 @@
             }
         }
 
-        /* Присвойте областям сетки */
-        /* .left { grid-area: left; }
-    .right { grid-area: right; } */
-
         /* Мобильная версия: сначала правая колонка, затем левая; обе на всю ширину */
         @media (max-width: 768px) {
             .resume-inner {
@@ -433,6 +429,10 @@
             .left,
             .right {
                 width: 100%;
+            }
+
+            .controls {
+                flex-direction: column;
             }
         }
 
