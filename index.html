@@ -1,480 +1,918 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru" data-lang="ru">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Дарья Строгонова — Системный аналитик</title>
-  <meta name="description" content="Резюме системного аналитика: Дарья Строгонова. Анализ требований, BPMN, UML, ER, SQL, REST/SOAP. Проекты и контакты." />
-  <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{
-      --bg:#0f1113;
-      --text:#f7f7f5;
-      --muted:#c9c7c2;
-      --card:#15181b;
-      --chip:#1b1f23;
-      --beige:#c8ad7f; /* основной акцент (бежевый) */
-      --beige-2:#b89b68;
-      --ink:#121314;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --font:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
-    }
-    @media (prefers-color-scheme:light){
-      :root{--bg:#f6f5f2;--text:#161513;--muted:#58544d;--card:#ffffff;--chip:#f1efe9;--shadow:0 6px 20px rgba(0,0,0,.08)}
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:var(--font); color:var(--text); background:
-        radial-gradient(900px 600px at 110% -10%, rgba(200,173,127,.18), transparent 60%),
-        radial-gradient(900px 600px at -10% 20%, rgba(200,173,127,.12), transparent 60%),
-        var(--bg);
-      line-height:1.45;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    .container{max-width:980px;margin:0 auto;padding:28px 18px 56px}
-    header{
-      display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center;
-      background:color-mix(in oklab,var(--card),transparent 8%);
-      border:1px solid color-mix(in oklab,var(--text),transparent 90%);
-      border-radius:18px;padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden;
-      isolation:isolate; backdrop-filter:saturate(140%) blur(6px);
-      animation:card-in 600ms cubic-bezier(.2,.8,.2,1) both;
-    }
-    @keyframes card-in{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
-    .avatar{
-      width:120px;height:120px;border-radius:50%;
-      display:grid;place-items:center;
-      background:
-        radial-gradient(70% 70% at 30% 30%, rgba(255,255,255,.25), transparent 60%),
-        linear-gradient(135deg,var(--beige),var(--beige-2));
-      color:var(--ink); font-weight:800; font-size:40px; letter-spacing:.5px;
-      border:2px solid color-mix(in oklab, var(--beige), transparent 60%);
-      box-shadow:inset 0 0 0 4px rgba(255,255,255,.12);
-      user-select:none;
-    }
-    .title h1{margin:0 0 6px 0;font-size:28px;line-height:1.15}
-    .title .role{font-size:16px;color:var(--muted)}
-    .actions{display:flex;gap:10px;align-items:center;margin-top:10px}
-    .btn{
-      padding:8px 12px;border-radius:10px;border:1px solid color-mix(in oklab,var(--text),transparent 88%);
-      background:linear-gradient(180deg, rgba(200,173,127,.18), rgba(200,173,127,.06));
-      color:var(--text);text-decoration:none;font-size:14px;display:inline-flex;gap:8px;align-items:center;
-      transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
-    .lang-toggle{margin-left:auto}
-    .card{
-      margin-top:16px;background:var(--card);border:1px solid color-mix(in oklab,var(--text),transparent 90%);
-      border-radius:16px;padding:18px;box-shadow:var(--shadow); position:relative; overflow:hidden;
-      animation:card-in 700ms cubic-bezier(.2,.8,.2,1) both;
-    }
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .section-title{display:flex;align-items:center;gap:8px;margin:0 0 10px 0;font-size:16px}
-    .section-title svg{opacity:.85}
-    .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{
-      padding:6px 10px;border-radius:999px;background:var(--chip);
-      border:1px solid color-mix(in oklab,var(--text),transparent 88%);font-size:13px
-    }
-    ul.clean{margin:8px 0 0 0;padding-left:18px}
-    ul.clean li{margin:4px 0}
-    .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .muted{color:var(--muted)}
-    .contact-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-    .contact{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;background:var(--chip);border:1px solid color-mix(in oklab,var(--text),transparent 88%);font-size:13px;text-decoration:none;color:inherit}
-    .contact svg{opacity:.9}
-    .qrwrap{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .qr{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;border:1px solid color-mix(in oklab,var(--text),transparent 88%);border-radius:12px;padding:8px 10px;background:var(--chip)}
-    .qr svg{width:76px;height:76px}
-    .edu{display:flex;flex-direction:column;gap:6px}
-    .footnote{font-size:12px;color:var(--muted);margin-top:8px}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Строгонова Дарья — System Analyst</title>
+    <meta name="description"
+        content="Строгонова Дарья — системный аналитик. Анализ требований и процессов, BPMN/UML, ER-моделирование, SQL, API (REST/SOAP)." />
+    <meta property="og:title" content="Строгонова Дарья — Резюме" />
+    <meta property="og:description"
+        content="System Analyst: requirements & process analysis, BPMN/UML/ERD, SQL, API. Projects & education." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://strogonovads.github.io/" />
+    <meta name="theme-color" content="#3B82F6" />
 
-    /* Печать: 1 страница A4 */
-    @page{size:A4; margin:10mm}
-    @media print{
-      :root{--bg:#ffffff;--text:#111111;--muted:#555;--card:#ffffff;--chip:#f3f3f3}
-      body{background:#fff}
-      .container{padding:0}
-      header, .card{box-shadow:none}
-      .btn, .lang-toggle, .qr svg + span, .qr .label, .screen-only{display:none !important}
-      .print-only{display:inline !important}
-      .contact{background:none;border:none;padding:0}
-      .contact svg{display:none}
-      .contact-row{gap:6px}
-      .qr{display:none} /* по умолчанию скрываем QR при печати — можно включить, если нужно */
-      a{color:#000;text-decoration:underline}
-      /* предотвращаем разрывы блоков */
-      header, .card, .grid, .cols{break-inside:avoid}
-      .grid{grid-template-columns:1fr 1fr}
-      /* компактнее шрифты */
-      body{font-size:11.2pt}
-      .title h1{font-size:18pt}
-      .title .role{font-size:11pt}
-      .section-title{font-size:11.2pt}
-    }
-    .print-only{display:none}
-    @media (prefers-reduced-motion:reduce){
-      *{animation:none !important; transition:none !important}
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <!-- Слот аватара: инициалы генерируются из ФИО, можно заменить на <img src="avatar.jpg" alt="Дарья Строгонова" class="avatar"> -->
-      <div class="avatar" id="avatar">ДС</div>
-      <div class="title">
-        <h1 data-i18n="name">Строгонова Дарья Сергеевна</h1>
-        <div class="role" data-i18n="role">Системный аналитик</div>
-        <div class="actions">
-          <a class="btn" href="#projects">
-            <!-- иконка -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/></svg>
-            <span data-i18n="viewProjects">Проекты</span>
-          </a>
-          <a class="btn" href="#contact">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
-            <span data-i18n="contactMe">Контакты</span>
-          </a>
-          <button class="btn lang-toggle" id="langBtn" type="button" aria-label="Switch language">RU / EN</button>
-        </div>
-      </div>
-    </header>
-
-    <!-- О себе -->
-    <section class="card" id="about">
-      <h3 class="section-title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l3 6 6 .5-4.5 4 1.3 6.5L12 17l-5.8 3 1.3-6.5L3 9.5 9 9l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        <span data-i18n="aboutTitle">О себе</span>
-      </h3>
-      <p id="summary" data-i18n="summary">
-        Начинающий системный аналитик, умею превращать идеи в структурированные решения. Работала над проектами в рамках акселератора и олимпиад по аналитике, разрабатывала ИС и бизнес-модели. Сильна в декомпозиции и формализации: фиксирую требования, строю модели процессов и данных, проверяю полноту и непротиворечивость. Сфокусирована на качестве и логике решений, быстро вникаю в предметную область и довожу задачи до результата.
-      </p>
-    </section>
-
-    <!-- Навыки -->
-    <section class="card" id="skills">
-      <div class="grid">
-        <div>
-          <h3 class="section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l4 8 8 1-6 6 2 9-8-4-8 4 2-9-6-6 8-1 4-8z" stroke="currentColor" stroke-width="1.6"/></svg>
-            <span data-i18n="hardSkills">Hard skills</span>
-          </h3>
-          <div class="chips">
-            <span class="chip">Анализ требований, бизнес-процессы</span>
-            <span class="chip">REST / SOAP · JSON / XML</span>
-            <span class="chip">BPMN · UML · ER</span>
-            <span class="chip">SQL (SELECT, JOIN)</span>
-            <span class="chip">Нормализация: 1:1 · 1:N · M:N</span>
-            <span class="chip">Waterfall · Agile · Scrum · Kanban</span>
-            <span class="chip">Postman · Swagger</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <span data-i18n="softSkills">Soft skills</span>
-          </h3>
-          <div class="chips">
-            <span class="chip">Системное, аналитическое мышление</span>
-            <span class="chip">Коммуникабельность, умение задавать вопросы</span>
-            <span class="chip">Фокус на качестве</span>
-            <span class="chip">Адаптивность · проактивность</span>
-            <span class="chip">Ответственность за результат</span>
-            <span class="chip">Командная работа</span>
-            <span class="chip">Внимательность к деталям</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Опыт -->
-    <section class="card" id="experience">
-      <h3 class="section-title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7 4V3a2 2 0 012-2h6a2 2 0 012 2v1" stroke="currentColor" stroke-width="1.6"/></svg>
-        <span data-i18n="experienceTitle">Опыт</span>
-      </h3>
-      <div class="cols">
-        <div>
-          <strong>ООО «АНГИЛ-ТРАНС»</strong> — <span data-i18n="roleAssistant">внештатный помощник директора по маркетингу</span><br>
-          <span class="muted">Рязань · 01.2025 — н.в.</span>
-          <ul class="clean" style="margin-top:6px">
-            <li data-i18n="xp1">Проводила конкурентный анализ (цены, сервисные уровни, коммуникации) и сводила результаты в сравнительные таблицы для управленческих решений.</li>
-            <li data-i18n="xp2">Совместно с командой формализовала воронку маркетинга и продаж: определены события, сущности, входы/выходы, базовые атрибуты данных.</li>
-            <li data-i18n="xp3">Готовила требования к дашбордам (минимальный набор метрик, события сбора данных, макеты); проверяла консистентность терминов.</li>
-            <li data-i18n="xp4">Разрабатывала SMM-план и контент-регламент (структура постов, чек-листы качества, правила без «призывов» под 01.09.2025).</li>
-          </ul>
-          <div class="footnote" data-i18n="xpMetricsTitle"><strong>Метрики (за 3–4 месяца, по данным компании):</strong></div>
-          <ul class="clean">
-            <li data-i18n="m1">−22% времени на подготовку недельного контент-плана за счёт унифицированных шаблонов и чек-листов.</li>
-            <li data-i18n="m2">+18% средняя вовлечённость в постах (ER) благодаря тестам форматов и гипотезам рубрик.</li>
-            <li data-i18n="m3">+12% конверсия из входящих обращений в предварительные расчёты за счёт стандартизации брифа.</li>
-          </ul>
-          <div class="footnote" data-i18n="xpHint">Опыт релевантен системному анализу: выявление требований, моделирование процессов/данных, консистентность терминологии, артефакты для передачи в разработку/BI.</div>
-        </div>
-        <div>
-          <strong data-i18n="projectsTitle">Проекты (GitHub)</strong><br>
-          <ul class="clean" id="projects">
-            <li>
-              <a href="https://github.com/strogonovads" target="_blank" rel="noopener">Курсовые: BPMN-модели</a> — <span class="muted" data-i18n="p1">описание процессов, уровни детализации, глоссарий ролей и событий.</span>
-            </li>
-            <li>
-              <a href="https://github.com/strogonovads" target="_blank" rel="noopener">Курсовые: ER-диаграммы, нормализация</a> — <span class="muted" data-i18n="p2">модели данных, функциональные зависимости, ключи, миграционные заметки.</span>
-            </li>
-            <li>
-              <a href="https://github.com/strogonovads" target="_blank" rel="noopener">Курсовые: бизнес-анализ</a> — <span class="muted" data-i18n="p3">user stories, acceptance criteria, NFR, контекстная схема.</span>
-            </li>
-            <li>
-              <span class="muted">Олимпиада по аналитике 2024/2025 — финалист/участник (дипломы в репозитории).</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Образование и языки -->
-    <section class="card" id="education">
-      <div class="cols">
-        <div class="edu">
-          <h3 class="section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-5 9 5-9 5-9-5z" stroke="currentColor" stroke-width="1.6"/><path d="M21 10v6" stroke="currentColor" stroke-width="1.6"/></svg>
-            <span data-i18n="eduTitle">Образование</span>
-          </h3>
-          <div>
-            <strong>Рязанский Государственный Радиотехнический Технологический Университет</strong><br>
-            <span class="muted">38.03.05 Бизнес-информатика · 2022—н.в.</span>
-          </div>
-        </div>
-        <div class="edu">
-          <h3 class="section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <span data-i18n="langTitle">Языки</span>
-          </h3>
-          <div>Русский — носитель</div>
-          <div>Английский — B2 (Upper-Intermediate)</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Контакты + QR -->
-    <section class="card" id="contact">
-      <h3 class="section-title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.6"/><path d="M22 6L12 13 2 6" stroke="currentColor" stroke-width="1.6"/></svg>
-        <span data-i18n="contactTitle">Контакты</span>
-      </h3>
-      <div class="contact-row">
-        <a class="contact" href="https://yandex.ru/maps/?text=Рязань" target="_blank" rel="noopener" aria-label="Рязань">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span>Рязань</span>
-        </a>
-        <a class="contact" href="tel:+79511067228" aria-label="+7 (951) 106-72-28">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v2a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012 4.18 2 2 0 014.06 2h2a2 2 0 012 1.72c.12.9.31 1.78.57 2.63a2 2 0 01-.45 2.11L7.1 9.1a16 16 0 006 6l.64-.64a2 2 0 012.11-.45c.85.26 1.73.45 2.63.57A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span class="print-only">+7 (951) 106-72-28</span><span class="screen-only">+7 (951) 106-72-28</span>
-        </a>
-        <a class="contact" href="mailto:strogonova.ds@gmail.com" aria-label="strogonova.ds@gmail.com">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.6"/><path d="M22 6L12 13 2 6" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span>strogonova.ds@gmail.com</span>
-        </a>
-        <a class="contact" href="https://t.me/strogonovva" target="_blank" rel="noopener" aria-label="Telegram @strogonovva">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21.5 3.5l-19 7 6.5 2.5 2.5 6.5 10-16z" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span>t.me/strogonovva</span>
-        </a>
-        <a class="contact" href="https://github.com/strogonovads" target="_blank" rel="noopener" aria-label="GitHub strogonovads">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 .7a11.3 11.3 0 00-3.58 22.05c.57.1.78-.25.78-.56v-2c-3.17.7-3.83-1.37-3.83-1.37a3 3 0 00-1.26-1.66c-1.03-.71.08-.7.08-.7a2.4 2.4 0 011.74 1.17 2.43 2.43 0 003.32.95 2.43 2.43 0 01.73-1.53c-2.53-.29-5.2-1.26-5.2-5.6a4.4 4.4 0 011.18-3 4.07 4.07 0 01.11-3s.96-.31 3.14 1.18a10.8 10.8 0 015.72 0c2.18-1.49 3.14-1.18 3.14-1.18a4.07 4.07 0 01.11 3 4.4 4.4 0 011.18 3c0 4.35-2.68 5.3-5.23 5.58a2.72 2.72 0 01.77 2.1v3.12c0 .31.21.66.79.55A11.3 11.3 0 0012 .7z" stroke="currentColor" stroke-width="1"/></svg>
-          <span>github.com/strogonovads</span>
-        </a>
-      </div>
-
-      <div class="qrwrap screen-only">
-        <div class="qr"><svg class="qrsvg" data-url="https://t.me/strogonovva" aria-label="QR to Telegram"></svg><span>Telegram</span></div>
-        <div class="qr"><svg class="qrsvg" data-url="mailto:strogonova.ds@gmail.com" aria-label="QR to Email"></svg><span>Email</span></div>
-        <div class="qr"><svg class="qrsvg" data-url="https://github.com/strogonovads" aria-label="QR to GitHub"></svg><span>GitHub</span></div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h3 class="section-title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 6h16M4 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        <span data-i18n="notesTitle">Примечание</span>
-      </h3>
-      <div class="muted" data-i18n="notesText">
-        При печати используется один лист A4, контакты показаны текстом, анимации отключены. На сайте доступен переключатель RU/EN и QR-коды. Цветовая схема — бежевый акцент.
-      </div>
-    </section>
-  </div>
-
-  <script>
-    /* ==== Инициализация: аватар из инициалов ==== */
-    (function(){
-      const name = "Строгонова Дарья Сергеевна";
-      const initials = name.split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
-      const a = document.getElementById('avatar');
-      if(a && a.tagName !== 'IMG'){ a.textContent = initials; }
-    })();
-
-    /* ==== QR: крошечный генератор (версия для коротких URL) ==== */
-    // Минимальный QR (версия 2, ECC-L) на базе простого алгоритма (демо-уровень)
-    // Для производственного использования берите полноценную библиотеку.
-    (function(){
-      function makeMatrix(n, fill=0){ return Array.from({length:n},()=>Array(n).fill(fill)); }
-      function drawFinder(m, r, c){
-        const p=[[0,0,0,0,0,0,0],[0,1,1,1,1,1,0],[0,1,0,0,0,1,0],[0,1,0,0,0,1,0],[0,1,0,0,0,1,0],[0,1,1,1,1,1,0],[0,0,0,0,0,0,0]];
-        for(let i=0;i<7;i++)for(let j=0;j<7;j++) m[r+i][c+j]=p[i][j]?1:-1;
-      }
-      function drawTiming(m){
-        for(let i=8;i<m.length-8;i++){ m[6][i]=(i%2?1:0); m[i][6]=(i%2?1:0); }
-      }
-      function reserve(m){ // mark reserved to -1
-        for(let i=0;i<m.length;i++)for(let j=0;j<m.length;j++) if(m[i][j]===-1){} else {}
-      }
-      function placeData(m, bits){
-        let n=m.length, dir=-1, col=n-1, i=n-1, bi=0;
-        function isFree(r,c){ return m[r][c]===0 || m[r][c]===1 || m[r][c]===0; }
-        while(col>0){
-          if(col===6) col--;
-          for(;;){
-            for(let cc=col;cc>col-2;cc--){
-              if(m[i][cc]===0){
-                m[i][cc]= (bi<bits.length && bits[bi++]) ? 1 : 0;
-              }
-            }
-            i+=dir;
-            if(i<0||i>=n){ i+= (dir*-1); dir*=-1; break; }
-          }
-          col-=2;
+    <style>
+        :root {
+            --accent: #3B82F6;
+            --accent-2: #60A5FA;
+            --text: #0f172a;
+            --muted: #475569;
+            --bg: #ffffff;
+            --card: #ffffff;
+            --shadow: 0 18px 60px rgba(2, 6, 23, .12);
+            --radius: 20px;
         }
-      }
-      function textToBits(s){ // ISO-8859-1 bytes
-        const bytes = Array.from(new TextEncoder().encode(s));
-        let out=[];
-        for(const b of bytes){ for(let k=7;k>=0;k--) out.push((b>>k)&1); }
-        return out;
-      }
-      function renderSVG(m, el, scale=2){
-        const n=m.length, size=n*scale;
-        const ns="http://www.w3.org/2000/svg";
-        el.setAttribute("viewBox",`0 0 ${size} ${size}`);
-        el.setAttribute("role","img");
-        el.innerHTML="";
-        const bg=document.createElementNS(ns,"rect");
-        bg.setAttribute("x","0");bg.setAttribute("y","0");bg.setAttribute("width",size);bg.setAttribute("height",size);bg.setAttribute("fill","#fff");
-        el.appendChild(bg);
-        for(let r=0;r<n;r++){
-          for(let c=0;c<n;c++){
-            if(m[r][c]===1){
-              const rect=document.createElementNS(ns,"rect");
-              rect.setAttribute("x",c*scale);rect.setAttribute("y",r*scale);
-              rect.setAttribute("width",scale);rect.setAttribute("height",scale);
-              rect.setAttribute("fill","#000");
-              el.appendChild(rect);
-            }
-          }
-        }
-      }
-      function simpleQR(url){
-        const n=29; // условная «версия»
-        const m=makeMatrix(n,0);
-        drawFinder(m,0,0); drawFinder(m,0,n-7); drawFinder(m,n-7,0);
-        drawTiming(m);
-        const bits = textToBits(url).slice(0, n*n/2); // ограничим
-        placeData(m, bits);
-        return m;
-      }
-      document.querySelectorAll(".qrsvg").forEach(svg=>{
-        const url = svg.getAttribute("data-url");
-        try{ renderSVG(simpleQR(url), svg, 3); }catch(e){ /* fail silently */ }
-      });
-    })();
 
-    /* ==== Локализация RU/EN ==== */
-    const dict = {
-      ru: {
-        name: "Строгонова Дарья Сергеевна",
-        role: "Системный аналитик",
-        viewProjects: "Проекты",
-        contactMe: "Контакты",
-        aboutTitle: "О себе",
-        summary: "Начинающий системный аналитик, умею превращать идеи в структурированные решения. Работала над проектами в рамках акселератора и олимпиад по аналитике, разрабатывала ИС и бизнес-модели. Сильна в декомпозиции и формализации: фиксирую требования, строю модели процессов и данных, проверяю полноту и непротиворечивость. Сфокусирована на качестве и логике решений, быстро вникаю в предметную область и довожу задачи до результата.",
-        hardSkills: "Hard skills",
-        softSkills: "Soft skills",
-        experienceTitle: "Опыт",
-        roleAssistant: "внештатный помощник директора по маркетингу",
-        xp1: "Проводила конкурентный анализ (цены, сервисные уровни, коммуникации) и сводила результаты в сравнительные таблицы для управленческих решений.",
-        xp2: "Совместно с командой формализовала воронку маркетинга и продаж: определены события, сущности, входы/выходы, базовые атрибуты данных.",
-        xp3: "Готовила требования к дашбордам (минимальный набор метрик, события сбора данных, макеты); проверяла консистентность терминов.",
-        xp4: "Разрабатывала SMM-план и контент-регламент (структура постов, чек-листы качества, правила без «призывов» под 01.09.2025).",
-        xpMetricsTitle: "Метрики (за 3–4 месяца, по данным компании):",
-        m1: "−22% времени на подготовку недельного контент-плана за счёт унифицированных шаблонов и чек-листов.",
-        m2: "+18% средняя вовлечённость в постах (ER) благодаря тестам форматов и гипотезам рубрик.",
-        m3: "+12% конверсия из входящих обращений в предварительные расчёты за счёт стандартизации брифа.",
-        xpHint: "Опыт релевантен системному анализу: выявление требований, моделирование процессов/данных, консистентность терминологии, артефакты для передачи в разработку/BI.",
-        projectsTitle: "Проекты (GitHub)",
-        p1: "описание процессов, уровни детализации, глоссарий ролей и событий.",
-        p2: "модели данных, функциональные зависимости, ключи, миграционные заметки.",
-        p3: "user stories, acceptance criteria, NFR, контекстная схема.",
-        eduTitle: "Образование",
-        langTitle: "Языки",
-        contactTitle: "Контакты",
-        notesTitle: "Примечание",
-        notesText: "При печати используется один лист A4, контакты показаны текстом, анимации отключены. На сайте доступен переключатель RU/EN и QR-коды. Цветовая схема — бежевый акцент."
-      },
-      en: {
-        name: "Daria Strogonova",
-        role: "System Analyst",
-        viewProjects: "Projects",
-        contactMe: "Contacts",
-        aboutTitle: "About",
-        summary: "Entry-level system analyst turning ideas into structured solutions. Built IS and business models within an accelerator and analytics olympiads. Strong at decomposition and formalization: capturing requirements, modeling processes and data, ensuring completeness and consistency. Focused on quality and logic of solutions; quick to dive into the domain and deliver.",
-        hardSkills: "Hard skills",
-        softSkills: "Soft skills",
-        experienceTitle: "Experience",
-        roleAssistant: "Marketing Director’s freelance assistant",
-        xp1: "Performed competitor research (pricing, service tiers, communications) and built comparative tables for decision-making.",
-        xp2: "Co-designed marketing & sales funnel: defined events, entities, I/O, baseline data attributes.",
-        xp3: "Prepared dashboard requirements (key metrics, tracking events, mockups); enforced term consistency.",
-        xp4: "Developed SMM plan & content guidelines (post structure, QA checklists, compliance with ad regulations).",
-        xpMetricsTitle: "Metrics (3–4 months, per company data):",
-        m1: "−22% time to produce weekly content plan via standardized templates & checklists.",
-        m2: "+18% average engagement rate (ER) due to format tests and rubric hypotheses.",
-        m3: "+12% conversion from inbound requests to preliminary quotes via standardized brief.",
-        xpHint: "Experience is relevant to system analysis: requirements elicitation, process/data modeling, terminology consistency, handover artifacts for dev/BI.",
-        projectsTitle: "Projects (GitHub)",
-        p1: "process descriptions, levels of detail, glossary of roles and events.",
-        p2: "data models, functional dependencies, keys, migration notes.",
-        p3: "user stories, acceptance criteria, NFRs, context diagram.",
-        eduTitle: "Education",
-        langTitle: "Languages",
-        contactTitle: "Contacts",
-        notesTitle: "Note",
-        notesText: "Printing uses a single A4 page; contacts are textual; animations are disabled. The site provides RU/EN toggle and QR codes. Accent color is beige."
-      }
-    };
-    const $ = s => document.querySelectorAll(s);
-    function setLang(lang){
-      document.documentElement.lang = (lang==='en'?'en':'ru');
-      document.documentElement.setAttribute('data-lang', lang);
-      const map = dict[lang]||dict.ru;
-      $("[data-i18n]").forEach(el=>{
-        const k = el.getAttribute("data-i18n");
-        if(map[k]) el.textContent = map[k];
-      });
-    }
-    document.getElementById('langBtn').addEventListener('click', ()=>{
-      const cur = document.documentElement.getAttribute('data-lang');
-      setLang(cur==='ru'?'en':'ru');
-    });
-    // старт с русской версии
-    setLang('ru');
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, "Noto Sans", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(900px 420px at -10% -100px, rgba(59, 130, 246, .12), transparent),
+                radial-gradient(1200px 600px at 90% -140px, rgba(96, 165, 250, .12), transparent),
+                linear-gradient(180deg, #ffffff, #f7fbff 60%, #ffffff 100%);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 26px auto 40px;
+            padding: 0 20px
+        }
+
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(59, 130, 246, .10), rgba(96, 165, 250, .10));
+            border: 1px solid rgba(15, 23, 42, .08);
+            border-radius: 28px;
+            padding: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 44px rgba(2, 6, 23, .10);
+            margin-bottom: 14px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background:
+                radial-gradient(260px 120px at 10% 0%, rgba(59, 130, 246, .25), transparent),
+                radial-gradient(240px 100px at 85% 120%, rgba(96, 165, 250, .22), transparent);
+            filter: blur(12px);
+            z-index: 0;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 14px;
+            align-items: center
+        }
+
+        .hero-title h1 {
+            margin: 0;
+            font-size: clamp(26px, 4.4vw, 38px);
+            line-height: 1.1;
+            letter-spacing: .2px
+        }
+
+        .hero-sub {
+            margin: 6px 0 0 0;
+            color: var(--muted);
+            font-size: 15px
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            color: #fff;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            box-shadow: 0 10px 30px rgba(59, 130, 246, .35);
+            white-space: nowrap
+        }
+
+        .avatar {
+            width: 84px;
+            height: 84px;
+            border-radius: 16px;
+            border: 1px solid rgba(15, 23, 42, .12);
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(2, 6, 23, .08)
+        }
+
+        .title-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .segmented {
+            display: flex;
+            border: 1px solid rgba(15, 23, 42, .12);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 30px rgba(2, 6, 23, .10)
+        }
+
+        .segmented button {
+            border: 0;
+            background: transparent;
+            padding: 10px 12px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--muted)
+        }
+
+        .segmented button.active {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn {
+            appearance: none;
+            border: 1px solid rgba(15, 23, 42, .12);
+            background: #fff;
+            color: var(--text);
+            padding: 10px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(2, 6, 23, .10);
+            transition: transform .2s ease, box-shadow .2s ease
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 44px rgba(2, 6, 23, .14)
+        }
+
+        .btn.primary {
+            border-color: transparent;
+            background: var(--accent);
+            color: #fff
+        }
+
+        .resume {
+            background: var(--card);
+            border: 1px solid rgba(15, 23, 42, .08);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(560px 140px at 22% -48px, rgba(59, 130, 246, .12), transparent),
+                radial-gradient(420px 120px at 96% -28px, rgba(96, 165, 250, .10), transparent);
+        }
+
+        .resume-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 22px;
+            padding: 20px
+        }
+
+        .section {
+            margin-bottom: 14px;
+            animation: fadeIn .5s both
+        }
+
+        .section h2 {
+            font-size: 14.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #0b1a51;
+            margin: 0 0 10px 0;
+            position: relative
+        }
+
+        .section h2::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 64px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            margin-top: 6px;
+            border-radius: 2px
+        }
+
+        .summary {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #1f2937;
+            background: linear-gradient(180deg, #fff, #f5f8ff);
+            border: 1px solid rgba(59, 130, 246, .18);
+            padding: 12px 14px;
+            border-radius: 14px
+        }
+
+        .item {
+            border: 1px solid rgba(15, 23, 42, .08);
+            border-radius: 14px;
+            padding: 10px 12px;
+            background: #fff
+        }
+
+        .item h3 {
+            font-size: 16px;
+            margin: 0 0 4px 0
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 6px
+        }
+
+        .bullets {
+            margin: 0;
+            padding-left: 0;
+            list-style: none
+        }
+
+        .li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin: 6px 0;
+            padding: 6px 8px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #fff, #f7fbff);
+            border: 1px solid rgba(59, 130, 246, .16)
+        }
+
+        .li svg {
+            flex: 0 0 18px;
+            width: 18px;
+            height: 18px;
+            color: var(--accent);
+            margin-top: 2px
+        }
+
+        .contacts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid rgba(15, 23, 42, .08);
+            border-radius: 14px;
+            background: #fff;
+            min-width: 0
+        }
+
+        .contact-card svg {
+            width: 20px;
+            height: 20px;
+            flex: 0 0 20px
+        }
+
+        .contact-card .label {
+            font-weight: 700
+        }
+
+        .contact-card .value {
+            color: var(--muted);
+            font-size: 14px;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            min-width: 0
+        }
+
+        .print-contacts {
+            display: none
+        }
+
+        .skill-groups {
+            display: grid;
+            gap: 10px
+        }
+
+        .skill-block {
+            border: 1px solid rgba(15, 23, 42, .08);
+            border-radius: 14px;
+            background: #fff
+        }
+
+        .skill-title {
+            margin: 0;
+            padding: 10px 12px;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #0b1a51;
+            border-bottom: 1px solid rgba(15, 23, 42, .08)
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 10px 12px
+        }
+
+        .skill {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px;
+            align-items: center
+        }
+
+        .skill .name {
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .bar {
+            height: 10px;
+            border-radius: 999px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, .08);
+            position: relative
+        }
+
+        .bar span {
+            position: absolute;
+            inset: 0 0 0 auto;
+            width: var(--w);
+            background: linear-gradient(90deg, rgba(59, 130, 246, .9), rgba(96, 165, 250, .9));
+            border-radius: 999px;
+            transform-origin: left center
+        }
+
+        [data-i18n] {
+            display: none
+        }
+
+        html[data-lang="ru"] [data-i18n="ru"] {
+            display: initial
+        }
+
+        html[data-lang="en"] [data-i18n="en"] {
+            display: initial
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        /* Присвойте областям сетки */
+        /* .left { grid-area: left; }
+    .right { grid-area: right; } */
+
+        /* Мобильная версия: сначала правая колонка, затем левая; обе на всю ширину */
+        @media (max-width: 768px) {
+            .resume-inner {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "right"
+                    "left";
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+        }
+
+
+        @page {
+            size: A4;
+            margin: 10mm
+        }
+
+        @media print {
+
+            html,
+            body {
+                height: auto
+            }
+
+            body {
+                background: #fff
+            }
+
+            .container {
+                margin: 0 auto 0;
+                padding: 0
+            }
+
+            /* .hero{display:none} */
+            .resume {
+                box-shadow: none;
+                border: 0;
+                border-radius: 0;
+                min-height: calc(297mm - 20mm);
+                width: 100%
+            }
+
+            .resume::after {
+                display: none
+            }
+
+            .resume-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                padding: 0
+            }
+
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 8px
+            }
+
+            .item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                padding: 8px
+            }
+
+            .summary {
+                padding: 8px;
+                background: #fff;
+                border-color: #ddd
+            }
+
+            .section h2 {
+                font-size: 12px
+            }
+
+            .item h3 {
+                font-size: 14px
+            }
+
+            .meta {
+                font-size: 11px
+            }
+
+            .bullets {
+                padding-left: 0
+            }
+
+            .contacts {
+                display: none !important
+            }
+
+            .print-contacts {
+                display: block !important;
+                margin-top: 4px
+            }
+
+            .print-contacts a {
+                color: #000;
+                text-decoration: underline
+            }
+
+            .btn,
+            .segmented,
+            .badge {
+                display: none !important
+            }
+
+            body {
+                font-size: 12px
+            }
+        }
+
+        html,
+        body {
+            height: auto;
+            min-height: 100%;
+        }
+
+        body {
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Строгонова Дарья Сергеевна",
+    "jobTitle":"System Analyst",
+    "address":{"@type":"PostalAddress","addressLocality":"Рязань, Россия"},
+    "email":"mailto:strogonova.ds@gmail.com",
+    "telephone":"+7-951-106-72-28",
+    "url":"https://github.com/strogonovads/portfolio",
+    "sameAs":["https://t.me/strogonovva","https://github.com/strogonovads"]
+  }
   </script>
-  <style>
-    /* Акцентные штрихи и маркеры */
-    header::after, .card::after{
-      content:""; position:absolute; inset:auto 0 -1px 0; height:2px;
-      background:linear-gradient(90deg, transparent, var(--beige), transparent);
-      opacity:.7;
-    }
-    .section-title span{border-bottom:2px solid color-mix(in oklab, var(--beige), transparent 40%)}
-  </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-title">
+                    <div class="title-row">
+                        <img class="avatar" src="avatar.jpg" alt="Строгонова Дарья" />
+                        <h1 data-i18n="ru">Строгонова Дарья Сергеевна</h1>
+                        <h1 data-i18n="en">Strogonova Daria Sergeevna</h1>
+                        <span class="badge" data-i18n="ru">Системный аналитик</span>
+                        <span class="badge" data-i18n="en">System Analyst</span>
+                    </div>
+                    <p class="hero-sub" data-i18n="ru">Анализ требований и процессов · BPMN/UML/ER · SQL · API
+                        (REST/SOAP)</p><br />
+                    <p class="hero-sub" data-i18n="ru">График работы: полный</p>
+                    <p class="hero-sub" data-i18n="en">Requirements & Process Analysis · BPMN/UML/ER · SQL · APIs
+                        (REST/SOAP)</p><br />
+                    <p class="hero-sub" data-i18n="en">Workload: full-time</p>
+                </div>
+                <div class="controls">
+                    <div class="segmented" role="tablist" aria-label="Language">
+                        <button id="btn-ru" class="active" aria-selected="true">RU</button>
+                        <button id="btn-en" aria-selected="false">EN</button>
+                    </div>
+                    <button class="btn" onclick="window.print()">Печать / PDF</button>
+                    <a class="btn primary" href="https://github.com/strogonovads/portfolio" target="_blank"
+                        rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <main class="resume">
+            <div class="resume-inner">
+                <section class="left">
+                    <div class="section">
+                        <h2 data-i18n="ru">Контакты</h2>
+                        <h2 data-i18n="en">Contacts</h2>
+                        <div class="contacts">
+                            <a class="contact-card" href="https://yandex.ru/maps/?text=Рязань" target="_blank"
+                                rel="noopener" aria-label="Город Рязань">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M12 21s-7-4.35-7-10a7 7 0 1 1 14 0c0 5.65-7 10-7 10Z" />
+                                    <circle cx="12" cy="11" r="3" />
+                                </svg>
+                                <div style="min-width:0">
+                                    <div class="label" data-i18n="ru">Город</div>
+                                    <div class="label" data-i18n="en">City</div>
+                                    <div class="value" data-i18n="ru">Рязань</div>
+                                    <div class="value" data-i18n="en">Ryazan, Russia</div>
+                                </div>
+                            </a>
+                            <a class="contact-card" href="tel:+79511067228" aria-label="Телефон">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path
+                                        d="M22 16.92v2a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 1h2a2 2 0 0 1 2 1.72c.12.9.3 1.78.57 2.63a2 2 0 0 1-.45 2.11L7.1 8.9a16 16 0 0 0 6 6l1.44-1.13a2 2 0 0 1 2.11-.45c.85.27 1.73.45 2.63.57A2 2 0 0 1 22 16.92Z" />
+                                </svg>
+                                <div style="min-width:0">
+                                    <div class="label" data-i18n="ru">Телефон</div>
+                                    <div class="label" data-i18n="en">Phone</div>
+                                    <div class="value">+7 (951) 106-72-28</div>
+                                </div>
+                            </a>
+                            <a class="contact-card" href="mailto:strogonova.ds@gmail.com" aria-label="Email">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+                                    <path d="m22 6-10 7L2 6" />
+                                </svg>
+                                <div style="min-width:0">
+                                    <div class="label">Email</div>
+                                    <div class="value">strogonova.ds@gmail.com</div>
+                                </div>
+                            </a>
+                            <a class="contact-card" href="https://t.me/strogonovva" target="_blank" rel="noopener"
+                                aria-label="Telegram @strogonovva">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M22 2L11 13" />
+                                    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+                                </svg>
+                                <div style="min-width:0">
+                                    <div class="label">Telegram</div>
+                                    <div class="value">@strogonovva</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="print-contacts">
+                            <div><strong data-i18n="ru">Город:</strong> <span data-i18n="ru">Рязань</span><span
+                                    data-i18n="en">Ryazan, Russia</span></div>
+                            <div><strong>Тел.:</strong> +7 (951) 106-72-28</div>
+                            <div><strong>Email:</strong> strogonova.ds@gmail.com</div>
+                            <div><strong>Telegram:</strong> https://t.me/strogonovva</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 data-i18n="ru">Опыт</h2>
+                        <h2 data-i18n="en">Experience</h2>
+                        <article class="item">
+                            <h3 data-i18n="ru">ООО «АНГИЛ-ТРАНС» — Внештатный помощник директора по маркетингу</h3>
+                            <h3 data-i18n="en">ANGIL-TRANS LLC — Part-time Marketing Assistant</h3>
+                            <div class="meta"><span data-i18n="ru">январь 2025 — н.в.</span><span data-i18n="en">Jan
+                                    2025 — present</span></div>
+                            <ul class="bullets">
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg>
+                                    <span data-i18n="ru">Выявляла узкие места и предлагала пути оптимизации</span>
+                                    <span data-i18n="en">Identified bottlenecks and suggested optimization paths</span>
+                                </li>
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg>
+                                    <span data-i18n="ru">Собирала и структурировала требования к контенту и веб-ресурсам
+                                        от заинтересованных сторон</span>
+                                    <span data-i18n="en">Gathered and structured stakeholder requirements for content
+                                        and web resources</span>
+                                </li>
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M20 6 9 17l-5-5" />
+                                    </svg>
+                                    <span data-i18n="ru">Вела мониторинг ключевых показателей (сроки, календарь
+                                        публикаций, качество материалов)</span>
+                                    <span data-i18n="en">Monitored key metrics (lead time, editorial calendar, content
+                                        quality)</span>
+                                </li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="section">
+                        <h2 data-i18n="ru">Образование</h2>
+                        <h2 data-i18n="en">Education</h2>
+                        <div class="item">
+                            <h3 data-i18n="ru">РГРТУ, 38.03.05, «Бизнес-информатика», Бакалавр, 2022 — н.в.</h3>
+                            <h3 data-i18n="en">RSREU, 38.03.05, “Business Informatics”, Bachelor, 2022 — present</h3>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 data-i18n="ru">Курсы</h2>
+                        <h2 data-i18n="en">Courses</h2>
+                        <div class="item"
+                            style="border-color:rgba(59,130,246,.35);background:linear-gradient(180deg,#fff,#f8fbff)">
+                            <h3 data-i18n="ru">«Системный анализ» (ИТ-Холдинг Т1) — ИТ-лагерь</h3>
+                            <h3 data-i18n="en">“System Analysis” (IT-Holding T1) — Bootcamp</h3>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 data-i18n="ru">Проекты</h2>
+                        <h2 data-i18n="en">Projects</h2>
+                        <article class="item">
+                            <div class="meta"><a href="https://github.com/strogonovads/portfolio" target="_blank"
+                                    rel="noopener">github.com/strogonovads/portfolio</a></div>
+                            <ul class="bullets">
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M9 11l3 3L22 4" />
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                    </svg>
+                                    <span data-i18n="ru">Курсовые по BPMN: моделирование процессов, роли, события,
+                                        границы систем</span>
+                                    <span data-i18n="en">BPMN coursework: process modeling, roles/events, system
+                                        boundaries</span>
+                                </li>
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M9 11l3 3L22 4" />
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                    </svg>
+                                    <span data-i18n="ru">Курсовые по ER-моделированию: нормализация (1:1, 1:N, M:N),
+                                        ключи и ограничения</span>
+                                    <span data-i18n="en">ER modeling: normalization (1:1, 1:N, M:N), keys and
+                                        constraints</span>
+                                </li>
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M9 11l3 3L22 4" />
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                    </svg>
+                                    <span data-i18n="ru">Курсовая по бизнес-анализу: user stories</span>
+                                    <span data-i18n="en">Business analysis coursework: user stories</span>
+                                </li>
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M9 11l3 3L22 4" />
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                    </svg>
+                                    <span data-i18n="ru">Проекты Акселератора 2024/2025: «Мой стартап» — разработки
+                                        ИС</span>
+                                    <span data-i18n="en">Accelerator projects 2024/2025: “My Startup” — IS
+                                        development</span>
+                                </li>
+                                <li class="li">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M9 11l3 3L22 4" />
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                    </svg>
+                                    <span data-i18n="ru">Олимпиады по аналитике 2024/2025: дипломы
+                                        финалиста/участника</span>
+                                    <span data-i18n="en">Analytics Olympiads 2024/2025: finalist/participant
+                                        certificates</span>
+                                </li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="right">
+                    <div class="section">
+                        <h2 data-i18n="ru">Кратко о ценностях</h2>
+                        <h2 data-i18n="en">Summary & Values</h2>
+                        <div class="summary">
+                            <p data-i18n="ru">Начинающий системный аналитик, умею превращать идеи в структурированные
+                                решения. Работала над проектами в рамках акселератора и олимпиад по аналитике,
+                                разрабатывала ИС и бизнес-модели. В работе делаю акцент на качество и логику решений,
+                                умею глубоко вникать в задачи и доводить их до результата</p>
+                            <p data-i18n="en">Entry-level System Analyst turning ideas into structured solutions. Worked
+                                on accelerator and analytics olympiad projects, building IS prototypes and business
+                                models. I prioritize quality and logical consistency, dig deep into problems and deliver
+                                results</p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 data-i18n="ru">Навыки</h2>
+                        <h2 data-i18n="en">Skills</h2>
+
+                        <div class="skill-groups">
+                            <div class="skill-block">
+                                <p class="skill-title">HARD SKILLS</p>
+                                <div class="skills">
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Анализ требований и бизнес-процессов</div>
+                                        <div class="name" data-i18n="en">Requirements & process analysis</div>
+                                        <div class="bar"><span style="--w:82%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">API & интеграции (REST, SOAP, JSON, XML)</div>
+                                        <div class="name" data-i18n="en">API & integrations (REST, SOAP, JSON, XML)
+                                        </div>
+                                        <div class="bar"><span style="--w:74%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">BPMN / UML / ER-диаграммы</div>
+                                        <div class="name" data-i18n="en">BPMN / UML / ER-diagrams</div>
+                                        <div class="bar"><span style="--w:78%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Базовый SQL</div>
+                                        <div class="name" data-i18n="en">Base SQL</div>
+                                        <div class="bar"><span style="--w:68%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Нормализация (1:1, 1:N, M:N)</div>
+                                        <div class="name" data-i18n="en">Normalizations (1:1, 1:N, M:N)</div>
+                                        <div class="bar"><span style="--w:70%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name">Waterfall · Agile · Scrum</div>
+                                        <div class="bar"><span style="--w:66%"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-block">
+                                <p class="skill-title">SOFT SKILLS</p>
+                                <div class="skills">
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Системное и аналитическое мышление</div>
+                                        <div class="name" data-i18n="en">Systems & analytical thinking</div>
+                                        <div class="bar"><span style="--w:85%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Коммуникабельность и вопросы</div>
+                                        <div class="name" data-i18n="en">Communication & questioning</div>
+                                        <div class="bar"><span style="--w:80%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Фокус на качество</div>
+                                        <div class="name" data-i18n="en">Quality focus</div>
+                                        <div class="bar"><span style="--w:82%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Адаптивность</div>
+                                        <div class="name" data-i18n="en">Adaptability</div>
+                                        <div class="bar"><span style="--w:78%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Проактивность</div>
+                                        <div class="name" data-i18n="en">Proactivity</div>
+                                        <div class="bar"><span style="--w:76%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Ответственность за результат</div>
+                                        <div class="name" data-i18n="en">Ownership</div>
+                                        <div class="bar"><span style="--w:84%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Командная работа</div>
+                                        <div class="name" data-i18n="en">Teamwork</div>
+                                        <div class="bar"><span style="--w:80%"></span></div>
+                                    </div>
+                                    <div class="skill">
+                                        <div class="name" data-i18n="ru">Внимательность к деталям</div>
+                                        <div class="name" data-i18n="en">Attention to detail</div>
+                                        <div class="bar"><span style="--w:86%"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 data-i18n="ru">О себе</h2>
+                        <h2 data-i18n="en">About</h2>
+                        <div class="item">
+                            <p data-i18n="ru">Люблю чтение: изучаю профильную литературу системному анализу. Люблю
+                                велоспорт и долгие прогулки. Планирую поступление в магистратуру по направлению,
+                                связанному с ИИ</p>
+                            <p data-i18n="en">I love reading: studying literature on systems analysis. I enjoy cycling
+                                and long walks. Planning to pursue a Master’s degree in an AI-related field</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const DOC = document.documentElement;
+        const btnRu = document.getElementById('btn-ru');
+        const btnEn = document.getElementById('btn-en');
+        function setLang(lang) {
+            DOC.setAttribute('lang', lang === 'ru' ? 'ru' : 'en');
+            DOC.setAttribute('data-lang', lang);
+            localStorage.setItem('cv_lang', lang);
+            btnRu.classList.toggle('active', lang === 'ru');
+            btnEn.classList.toggle('active', lang === 'en');
+            btnRu.setAttribute('aria-selected', lang === 'ru');
+            btnEn.setAttribute('aria-selected', lang === 'en');
+        }
+        btnRu.addEventListener('click', () => setLang('ru'));
+        btnEn.addEventListener('click', () => setLang('en'));
+        setLang(localStorage.getItem('cv_lang') || 'ru');
+    </script>
 </body>
+
 </html>
